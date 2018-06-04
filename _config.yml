@@ -79,3 +79,8 @@ theme: anisina
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type:
+
+# Sidebar settings
+sidebar: true
+sidebar-about-description: "Keep It Simple Stupid"
+sidebar-avatar: https://scontent-bom1-1.xx.fbcdn.net/v/t1.0-9/26165221_1512561602146243_5802352489905179354_n.jpg?_nc_cat=0&oh=6404204da322e092074b5703bfcc0d5d&oe=5BBCB569
