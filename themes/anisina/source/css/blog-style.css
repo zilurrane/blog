@@ -246,9 +246,10 @@ article blockquote cite:before{
         background: white;
         box-shadow: rgba(0, 0, 0, 0.2) 0 1px 4px;
         border-radius: 2px;
-        width: 170px;
+        width: 100%;
         float: right;
         margin: 0;
+        text-align: center;
     }
 
     #huxblog_navbar a {
