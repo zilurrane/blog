@@ -1,38 +1,49 @@
 ---
-title: Second Post
+title: Generate release mode APK for React-Native project to publish on PlayStore
+description: Generate release mode APK for React-Native project to publish on PlayStore
+tags: React-Native, APK
 ---
-Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
 
-## Quick Start
+Good Day All! I hope you are doing Good.
 
-### Create a new post
+From last couple of days, Me and my friends were doing comparative study of ionic3 and react-native. During that period, we were struggling to generate release mode APK for React-Native project.
 
-``` bash
-$ hexo new "My New Post"
+Finally, we came across following solution:
+ 
+#### Create and then copy a keystore file to android/app
+```
+keytool -genkey -v -keystore mykeystore.keystore -alias mykeyalias -keyalg RSA -keysize 2048 -validity 10000
+```
+#### Setup your gradle variables in android/gradle.properties
+```
+MYAPP_RELEASE_STORE_FILE=mykeystore.keystore
+MYAPP_RELEASE_KEY_ALIAS=mykeyalias
+MYAPP_RELEASE_STORE_PASSWORD=*****
+MYAPP_RELEASE_KEY_PASSWORD=*****
+ ```
+#### Add signing config to android/app/build.gradle
+ ```
+android {
+signingConfigs {
+release {
+storeFile file(MYAPP_RELEASE_STORE_FILE)
+storePassword MYAPP_RELEASE_STORE_PASSWORD
+keyAlias MYAPP_RELEASE_KEY_ALIAS
+keyPassword MYAPP_RELEASE_KEY_PASSWORD
+}
+}
+buildTypes {
+release {
+signingConfig signingConfigs.release
+}
+}
+}
+```
+#### Generate your release APK:
+ ```
+cd android && ./gradlew assembleRelease
 ```
 
-More info: [Writing](https://hexo.io/docs/writing.html)
+Your APK will get generated at: *android/app/build/outputs/apk/app-release.apk*
 
-### Run server
-
-``` bash
-$ hexo server
-```
-
-More info: [Server](https://hexo.io/docs/server.html)
-
-### Generate static files
-
-``` bash
-$ hexo generate
-```
-
-More info: [Generating](https://hexo.io/docs/generating.html)
-
-### Deploy to remote sites
-
-``` bash
-$ hexo deploy
-```
-
-More info: [Deployment](https://hexo.io/docs/deployment.html)
+Special Thanks to Tyler Buchea : http://blog.tylerbuchea.com/react-native-publishing-an-android-app/
