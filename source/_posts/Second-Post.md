@@ -11,36 +11,36 @@ From last couple of days, Me and my friends were doing comparative study of ioni
 Finally, we came across following solution:
  
 #### Create and then copy a keystore file to android/app
-```
+```bat
 keytool -genkey -v -keystore mykeystore.keystore -alias mykeyalias -keyalg RSA -keysize 2048 -validity 10000
 ```
 #### Setup your gradle variables in android/gradle.properties
-```
-MYAPP_RELEASE_STORE_FILE=mykeystore.keystore
-MYAPP_RELEASE_KEY_ALIAS=mykeyalias
-MYAPP_RELEASE_STORE_PASSWORD=*****
-MYAPP_RELEASE_KEY_PASSWORD=*****
+```Java
+MYAPP_RELEASE_STORE_FILE = mykeystore.keystore
+MYAPP_RELEASE_KEY_ALIAS = mykeyalias
+MYAPP_RELEASE_STORE_PASSWORD = *****
+MYAPP_RELEASE_KEY_PASSWORD = *****
  ```
 #### Add signing config to android/app/build.gradle
- ```
+ ```Java
 android {
-signingConfigs {
-release {
-storeFile file(MYAPP_RELEASE_STORE_FILE)
-storePassword MYAPP_RELEASE_STORE_PASSWORD
-keyAlias MYAPP_RELEASE_KEY_ALIAS
-keyPassword MYAPP_RELEASE_KEY_PASSWORD
-}
-}
-buildTypes {
-release {
-signingConfig signingConfigs.release
-}
-}
+  signingConfigs {
+    release {
+      storeFile file(MYAPP_RELEASE_STORE_FILE)
+      storePassword MYAPP_RELEASE_STORE_PASSWORD
+      keyAlias MYAPP_RELEASE_KEY_ALIAS
+      keyPassword MYAPP_RELEASE_KEY_PASSWORD
+    }
+  }
+  buildTypes {
+    release {
+      signingConfig signingConfigs.release
+    }
+  }
 }
 ```
 #### Generate your release APK:
- ```
+ ```bat
 cd android && ./gradlew assembleRelease
 ```
 
