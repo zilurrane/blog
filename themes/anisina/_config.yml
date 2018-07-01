@@ -3,18 +3,18 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Haojen # your blog title name
+title: LifeCOMPILERS # your blog title name
 subtitle:  
-author: Haojen Ma # 作者
+author: Zilu Rane
 language: 
 timezone: 
 
 # custom Site settings
 # more detail check out docs
-SEOTitle: Haojen's blog 
+SEOTitle: LifeCOMPILERS's blog 
 header-img: //o7bkkhiex.bkt.clouddn.com/lion-blur-bg.jpg
-email: HaojenMa@gmail.com
-description: "马浩珍在 Github 上的个人博客"
+email: zilurrane@gmail.com
+description: "Keep It Simple Stupid"
 keyword: # seo key words
 
 favicon: # your favicon png
@@ -22,19 +22,19 @@ favicon: # your favicon png
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://haojen.github.io
+url: http://blog.lifecompilers.com
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 
 # SNS settings
 # RSS:
-weibo_username: haojen
-zhihu_username: megahertz
-github_username: haojen
-twitter_username: ehazon
-facebook_username:  
-linkedin_username:  
+weibo_username: zilurrane 
+zhihu_username: zilurrane
+github_username: zilurrane
+twitter_username: zilurrane
+facebook_username: zilurrane 
+linkedin_username: zilurrane 
 
 # Build settings
 anchorjs: false                        # if you want to customize anchor. check out line:181 of `post.html`
@@ -44,7 +44,7 @@ anchorjs: false                        # if you want to customize anchor. check 
 disqus_username: 
 
 # Duoshuo settings
-duoshuo_username:  # 你的多说帐号
+duoshuo_username:  # zilurrane
 # Share component is depend on Comment so we can NOT use share only.
 duoshuo_share: true                     # set to false if you want to use Comment without Sharing
 
@@ -156,4 +156,4 @@ swiftype_key:
 # archive page title 
 archive:
     title: archives
-    description: 可以根据归档日期检索所有文件
+    description: You can retrieve all archived files based on date
